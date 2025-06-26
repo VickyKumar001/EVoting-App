@@ -27,12 +27,13 @@ SECRET_KEY = 'django-insecure-g=jzhv5zv8nxar2z0jpv#jv-$o*p(+e597*wgkau$gc&7v*m4e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True')=="True"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "my-voting-app-q6ef.onrender.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.humanize',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -134,6 +135,8 @@ STATIC_ROOT = BASE_DIR/'assets'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_DIRS = [BASE_DIR/'static']
+STATIC_DIRS = [os.path.join(BASE_DIR, 'voteapp/static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
