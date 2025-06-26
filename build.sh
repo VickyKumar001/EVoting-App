@@ -6,3 +6,4 @@ pip install -r requirements.txt
 
 python manage.py collectstatic --no-input
 python manage.py migrate
+apt-get update && apt-get install -y python3-distutils
